@@ -58,8 +58,9 @@ a:visited {
 	$link = mysql_connect('localhost', 'root', 'alter75');
 	if (! $link) 
 		die('Unable to connect to the database');
-	mysql_select_db('activesearch') or die('Could not open database.');
+	mysql_select_db('myd5') or die('Could not open database.');
 	$sql = "SELECT * FROM search";
+	$sql = mysql_real_escape_string($sql);
 	$query = mysql_query($sql);
 	$num_rows = mysql_num_rows($query);
 	echo '<br/>';

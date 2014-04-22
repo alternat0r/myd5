@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>MD5 Data0.Net</title>
+<title>MyD5</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <script type="text/javascript">
 function setFocus()
@@ -35,8 +35,9 @@ function setFocus()
 	$link = mysql_connect('localhost', 'root', 'alter75');
 	if (! $link) 
 		die('Unable to connect to the database');
-	mysql_select_db('activesearch') or die('Could not open database.');
+	mysql_select_db('myd5') or die('Could not open database.');
 	$sql = "SELECT * FROM search";
+	$sql = mysql_real_escape_string($sql);
 	$query = mysql_query($sql);
 	$num_rows = mysql_num_rows($query);
 	echo "Search over " .$num_rows. " of value and counting.";
